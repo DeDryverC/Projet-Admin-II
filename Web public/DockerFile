@@ -1,0 +1,15 @@
+FROM php:7.2-apache
+
+RUN apt-get -y update
+RUN apt-get install -y vim
+
+
+COPY www/b2b/index.php /var/www/woodytoys/b2b/index.php
+COPY www/vitrine/vitrine.html /var/www/woodytoys/vitrine/index.html
+COPY config/sites-available/b2b.conf /etc/apache2/sites_available/b2b.conf
+COPY config/sites_available/vitrine.conf /etc/apache2/sites_available/vitrine.conf
+COPY config/apache2.conf /etc/apache2/apache2.conf
+
+RUN a2dissite 000-default.conf
+RUN a2ensite b2b.conf
+RUN a2ensite vitrine.conf
