@@ -11,5 +11,5 @@ COPY config/sites-available/vitrine.conf /etc/apache2/sites_available/vitrine.co
 COPY config/apache2.conf /etc/apache2/apache2.conf
 
 RUN a2dissite 000-default.conf
-RUN a2ensite b2b.conf
-RUN a2ensite vitrine.conf
+RUN a2ensite config/sites-available/b2b.conf
+RUN a2ensite config/sites-available/vitrine.conf
