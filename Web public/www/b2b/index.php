@@ -21,34 +21,30 @@
     <div>
         <h3>Articles en vente</h3>
         <?php
+
         $servername = '135.125.101.201:3306';
         $username = 'admin';
         $password = "password";
         $dbname = 'woodytoys';
-        $bdd = mysqli_connect($servername, $username, $password, $dbname) or die('Error connecting to woodytoys database');
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        $result= $conn->query("SELECT * FROM articles");
 
-        $mysql = "SELECT * FROM articles";
-        $result = $bdd->query($mysql);
-        while($row = $result->fetch_assoc()){
-            echo $row["nom"]. " - " . $row["prix"] ."€" . "<br>";
+        while ($row = $result->fetch()) {
+            echo $row['nom'] . " - " . $row['prix'] . "€ <br />\n";
         }
-
 
         if (isset($_POST['submit'])){
             $article = $_POST["article"];
             $prix = $_POST["prix"];
 
             $insert = "INSERT INTO articles VALUES ('$article', $prix)";
-            if(mysqli_query($bdd, $insert)){
-                header("Refresh:0");
-            }
-            else{
-                echo "erreur";
-            }
+            $conn->exec($insert);
+            header("Refresh:0");
         }
 
-        $bdd->close();
+        $conn = null;
         ?>
     </div>
 
