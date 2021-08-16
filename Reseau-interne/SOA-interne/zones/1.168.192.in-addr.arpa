@@ -1,0 +1,15 @@
+$ORIGIN 1.168.192.in-addr.arpa
+$TTL 1d
+@       IN      SOA     ns.intranet.woodytoys.      bombaert.intranet.woodytoys. (
+                5               ; Serial
+                604800          ; Refresh
+                86400           ; Retry
+                2419200         ; Expire
+                604800 )        ; Negative Cache TTL
+
+        IN      NS      ns.intranet.woodytoys.
+
+1       IN      PTR     A       resolv.intranet.woodytoys
+2       IN      PTR     A       ns.intranet.woodytoys
+3       IN      PTR     A       erp.intranet.woodytoys
+4       IN      PTR     A       db.intranet.woodytoys
