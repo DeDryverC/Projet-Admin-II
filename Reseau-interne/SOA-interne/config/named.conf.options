@@ -3,19 +3,14 @@ options{
 
     listen-on {any; };
     listen-on-v6 { none; };
-    recursion no;
+    listen-on port 53 {any; };
 
-    allow-recursion{ none; };
+
     allow-query {
-        192.168.1.0/24;
-        192.168.2.0/24;
-        192.168.3.0/24;
-        192.168.4.0/24;
-    }
-
-    allow-transfer {
-        none;
+        192.168.0.0/16;
     };
-
+    allow-transfer{none; };
+    allow-recursion {none; };
+    recursion no;
     pid-file "/var/run/named/named.pid";
 }

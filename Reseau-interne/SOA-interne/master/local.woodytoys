@@ -1,16 +1,16 @@
-$ORIGIN intranet.woodytoys.
+$ORIGIN local.woodytoys.
 $TTL 1d
-@       IN      SOA     ns.intranet.woodytoys.       bombaert.intranet.woodytoys. (
+@       IN      SOA     ns.local.woodytoys.       bombaert.local.woodytoys. (
                 5               ; Serial
                 604800          ; Refresh
                 86400           ; Retry
                 2419200         ; Expire
                 604800 )        ; Negative Cache TTL
 
-    
-        IN      NS      ns.intranet.woodytoys.
+
+        IN      NS      ns.local.woodytoys.
 
 resolv          IN      A       192.168.1.1 ;record resolv
 ns              IN      A       192.168.1.2 ; record name server
-erp             IN      A       192.168.1.3 ; record erp
+www             IN      A       192.168.1.3 ; record erp
 db              IN      A       192.168.1.4 ;recod base de données

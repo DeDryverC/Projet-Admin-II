@@ -1,14 +1,9 @@
-zone intranet.woodytoys IN {
+zone local.woodytoys {
     type master;
-    file "/etc/bind/master/intranet.woodytoys";
-    allow-update {none; };
-    notify no;
+    file "/etc/bind/master/local.woodytoys";
 };
 
 zone "1.168.192.in-addr.arpa" {
     type master;
     file "/etc/bind/master/1.168.192.in-addr.arpa";
-    allow-update {none; };
-    notify no;
 };
-
