@@ -1,4 +1,5 @@
-FROM mysql-latest
+FROM ubuntu:latest
 RUN apt-get update && apt-get upgrade -y
+RUN apt install mysql-server -y
 
-COPY mysql.conf.d /etc/mysql/mysql.conf.d
+CMD tail -f /dev/null
