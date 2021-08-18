@@ -9,8 +9,10 @@ options {
         interface-interval 0;
         listen-on port 53 { any; };
         listen-on-v6 { none; };
+        
         recursion yes;
-        allow-recursion {
+        #on active la recursion pour les sous-reseaux suivants
+        allow-recursion { 
         192.168.0.0/16;
         127.0.0.11/16;
         10.10.10.0/24;
